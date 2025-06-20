@@ -70,6 +70,25 @@
       const password = Vue.ref('');
       const error = Vue.ref('');
 
+      const dogs = Vue.ref([]);
+      async function loadDogs() {
+        try {
+          const res = await fetch('/api/dogs');
+          const dogData = await res.json();
+
+          // Fetch a random image for each dog
+          for (const dog of dogData) {
+            const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+            const imgData = await imgRes.json();
+            dog.photo = imgData.message;
+          }
+
+          dogs.value = dogData;
+        } catch (err) {
+          console.error('Failed to load dogs:', err);
+        }
+      }
+
       async function login() {
         try {
           const res = await fetch('/api/users/login', {
