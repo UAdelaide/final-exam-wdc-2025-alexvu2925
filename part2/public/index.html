@@ -40,7 +40,22 @@
     <h2 class="mt-5">All Registered Dogs</h2>
     <div v-if="dogs.length > 0" class="table-responsive">
       <table class="table table-bordered">
-        
+        <thead class="table-light">
+          <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr v-for="(dog, index) in dogs" :key="index">
+        <td><img :src="dog.photo" class="img-fluid" style="max-height: 100px;" /></td>
+        <td>{{ dog.dog_name }}</td>
+        <td>{{ dog.size }}</td>
+        <td>{{ dog.owner_username }}</td>
+      </tr>
+    </tbody>
       </table>
     </div>
   </div>
