@@ -25,5 +25,20 @@
         <p>Dog of the Day: Spot</p>
     </div>
 
-    
+    <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return { dog: '' }
+      },
+      methods: {
+        async getDog() {
+          const res = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await res.json();
+          this.dog = data.message;
+        }
+      }
+    }).mount('#app');
+  </script>
 </body>
