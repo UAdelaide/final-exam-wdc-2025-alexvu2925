@@ -18,7 +18,7 @@ app.use(session({
     secret: 'alex',
     resave: false,
     saveUninitialized: false,
-})
+}));
 
 // Export the app instead of listening here
 module.exports = app;
