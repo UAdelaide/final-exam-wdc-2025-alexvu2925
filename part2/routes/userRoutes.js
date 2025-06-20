@@ -38,7 +38,6 @@ router.get('/me', (req, res) => {
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  console.log('Login attempt:', { email, password });
 
   try {
     const [rows] = await db.query(`
@@ -47,18 +46,14 @@ router.post('/login', async (req, res) => {
     `, [email, password]);
 
     if (rows.length === 0) {
-      console.log('Invalid credentials');
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
     req.session.user = rows[0];
-    console.log('✅ Login successful:', rows[0]);
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
-    console.error('❌ Login error:', error);
     res.status(500).json({ error: 'Login failed' });
   }
 });
-
 
 module.exports = router;
