@@ -89,6 +89,12 @@
         }
       }
 
+      onMounted(() => {
+        loadDogs();
+      });
+
+      
+
       async function login() {
         try {
           const res = await fetch('/api/users/login', {
@@ -112,6 +118,7 @@
           error.value = 'Something went wrong. Please try again.';
         }
       }
+
 
       return { message, email, password, error, login };
     }
