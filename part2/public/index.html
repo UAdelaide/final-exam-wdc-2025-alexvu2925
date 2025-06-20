@@ -22,7 +22,15 @@
       </div>
       <div class="card-body">
         <form @submit.prevent="login">
-          
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input v-model="email" type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input v-model="password" type="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
       </div>
     </div>
