@@ -17,7 +17,7 @@ let db;
 // Database setup and seed on startup
 (async () => {
   try {
-    // Step 1: Create DB if it doesn't exist
+    // Create DB if it doesn't exist
     const initConn = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
@@ -26,7 +26,7 @@ let db;
     await initConn.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
     await initConn.end();
 
-    // Step 2: Connect to the database
+    // Connect to the database
     db = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
