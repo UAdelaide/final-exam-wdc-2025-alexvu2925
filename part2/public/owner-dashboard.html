@@ -81,6 +81,11 @@
         const message = ref('');
         const error = ref('');
 
+        async function logout() {
+        await fetch('/api/users/logout', { method: 'POST' });
+        window.location.href = 'index.html';
+      }
+
         async function loadWalks() {
           try {
             const res = await fetch('/api/walks');
@@ -126,7 +131,7 @@
           message,
           error,
           submitWalkRequest,
-          log
+          logout
         };
       }
     }).mount('#app');
