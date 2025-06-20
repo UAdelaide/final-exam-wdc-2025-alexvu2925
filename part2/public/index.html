@@ -36,13 +36,13 @@
         <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
       </div>
     </div>
-    
+
   </div>
 
   <script>
     const { createApp } = Vue;
     createApp({
-      data() {
+      setup() {
         return {
           message: 'Welcome to the Dog Walking Service!'
         };
