@@ -64,7 +64,9 @@
                   window.location.href = 'owner-dashboard.html';
                 }
 
-              
+              else if (result.user.role === 'walker') {
+                  window.location.href = 'walker-dashboard.html';
+                }
             } else {
               error.value = result.message || 'Login failed. Please try again.';
             }
