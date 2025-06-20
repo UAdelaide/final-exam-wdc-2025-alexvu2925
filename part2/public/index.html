@@ -48,15 +48,7 @@
         const password = Vue.ref('');
         const error = Vue.ref('');
 
-        const login = () => {
-          if (email.value === '' || password.value === '') {
-            error.value = 'Please fill in all fields';
-          } else {
-            // Simulate a successful login
-            error.value = '';
-            alert(`Logged in as ${email.value}`);
-          }
-        };
+        asyn
 
         return { message, email, password, error, login };
       }
