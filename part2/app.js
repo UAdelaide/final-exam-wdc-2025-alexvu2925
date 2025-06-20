@@ -17,7 +17,7 @@ app.use('/api/users', userRoutes);
 app.use(session({
     secret: 'alex',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
 })
 
 // Export the app instead of listening here
