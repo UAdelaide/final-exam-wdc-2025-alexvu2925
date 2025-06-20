@@ -85,6 +85,16 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+        const myDogs = ref([]);
+
+async function loadMyDogs() {
+  try {
+    const res = await fetch('/api/users/mydogs');
+    myDogs.value = await res.json();
+  } catch {
+    error.value = 'Could not load your dogs';
+  }
+}
 
         async function logout() {
           await fetch('/api/users/logout', { method: 'POST' });
