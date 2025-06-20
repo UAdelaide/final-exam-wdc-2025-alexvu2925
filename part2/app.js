@@ -9,6 +9,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
+app.use(session({
+    secret: 'alex',
+    resave: false,
+    saveUninitialized: false,
+}));
+
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
